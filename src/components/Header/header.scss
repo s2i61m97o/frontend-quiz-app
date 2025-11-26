@@ -1,0 +1,66 @@
+@use "/src/sass/base" as b;
+
+.header {
+  max-width: 100%;
+  display: flex;
+  padding: 1rem 1.5rem;
+}
+
+.light-dark {
+  display: flex;
+  align-items: center;
+  img {
+    margin-inline: 0.5rem;
+  }
+}
+
+// Light/Dark Theme Switch
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 2rem;
+  height: 1.25rem;
+}
+
+/* Removing Checkboxes */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* Background on slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: b.$purple600;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  border-radius: 2rem;
+}
+
+/* Slider Thumb */
+.slider:before {
+  position: absolute;
+  content: "";
+  border-radius: 50%;
+  height: 0.75rem;
+  width: 0.75rem;
+  left: 4px;
+  bottom: 4px;
+  background-color: b.$white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+/* Thumb Movement */
+input:checked + .slider:before {
+  -webkit-transform: translateX(0.75rem);
+  -ms-transform: translateX(0.75rem);
+  transform: translateX(0.75rem);
+}

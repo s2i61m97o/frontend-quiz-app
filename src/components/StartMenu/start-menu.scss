@@ -1,0 +1,65 @@
+@use "/src/sass/base" as b;
+@use "/src/sass/mixins" as mx;
+
+main {
+  width: 100%;
+  padding: b.$sp-400 b.$sp-300;
+}
+
+.heading {
+  @include mx.prst-2-mob;
+  margin-block-end: 0;
+  color: b.$blue900;
+}
+
+.bold {
+  font-weight: 500;
+}
+
+p {
+  @include mx.prst-5-mob;
+}
+
+.option-list {
+  display: flex;
+  flex-direction: column;
+  gap: b.$sp-200;
+  margin-block: b.$sp-500;
+
+  .topic {
+    font-family: inherit;
+    width: 100%;
+    border-radius: b.$sp-150;
+    padding: b.$sp-200;
+    border: 0;
+    background-color: b.$white;
+    color: b.$blue900;
+    @include mx.prst-4-mob;
+    text-align: start;
+    box-shadow: 0 b.$sp-200 b.$sp-500 rgba(143, 160, 193, 0.14);
+    display: flex;
+    align-items: center;
+    gap: b.$sp-200;
+
+    .icon {
+      padding: b.$sp-50;
+      border-radius: b.$sp-100;
+    }
+
+    .html {
+      background-color: b.$orange50;
+    }
+
+    .css {
+      background-color: b.$green100;
+    }
+
+    .javascript {
+      background-color: b.$blue50;
+    }
+
+    .accessibility {
+      background-color: b.$purple100;
+    }
+  }
+}

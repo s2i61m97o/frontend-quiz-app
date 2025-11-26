@@ -1,0 +1,34 @@
+@use "/src/sass/base" as b;
+
+@mixin prst-1-mob{
+    font-size: 5.5rem;
+    font-weight: 500;
+    line-height: 100%;
+    color: b.$blue900;
+}
+
+@mixin prst-2-mob() {
+    font-size: 2.5rem;
+    font-weight: 300;
+    line-height: 140%;
+}
+
+@mixin prst-3-mob {
+    font-size: 1.25rem;
+    font-weight: 500;
+    line-height: 120%;
+}
+
+@mixin prst-4-mob {
+    font-size: 1.125rem;
+    font-weight: 500;
+    line-height: 100%;
+}
+
+@mixin prst-5-mob {
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 150%;
+    font-style: italic;
+    color: b.$grey500;
+}
