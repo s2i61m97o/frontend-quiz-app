@@ -9,7 +9,7 @@ main {
 .heading {
   @include mx.prst-2-mob;
   margin-block-end: 0;
-  color: b.$blue900;
+  color: light-dark(b.$blue900, b.$white);
 }
 
 .bold {
@@ -26,21 +26,7 @@ p {
   gap: b.$sp-200;
   margin-block: b.$sp-500;
 
-  .topic {
-    font-family: inherit;
-    width: 100%;
-    border-radius: b.$sp-150;
-    padding: b.$sp-200;
-    border: 0;
-    background-color: b.$white;
-    color: b.$blue900;
-    @include mx.prst-4-mob;
-    text-align: start;
-    box-shadow: 0 b.$sp-200 b.$sp-500 rgba(143, 160, 193, 0.14);
-    display: flex;
-    align-items: center;
-    gap: b.$sp-200;
-
+  button {
     .icon {
       padding: b.$sp-50;
       border-radius: b.$sp-100;

@@ -1,20 +1,41 @@
 @use "./sass/base" as b;
-
-:root {
-  // color-scheme: light dark ;
-}
+@use "./sass/mixins" as mx;
 
 * {
   box-sizing: border-box;
 }
 
+
+.theme-dark {
+  background-image: url(/images/pattern-background-mobile-dark.svg);
+}
+.theme-light {
+  background-image: url(/images/pattern-background-mobile-light.svg);
+}
+
 body {
-  background-image: url(/public/images/pattern-background-mobile-light.svg);
   background-repeat: no-repeat;
   background-size: cover;
-  background-color: b.$grey50; 
+  background-color: light-dark(b.$grey50, b.$blue900);
   max-width: 100%;
-  overflow: hidden;
   margin: 0;
   font-family: "Rubik", sans-serif;
+}
+
+.topic,
+.option {
+  font-family: inherit;
+  @include mx.prst-4-mob;
+  width: 100%;
+  text-align: start;
+  padding: b.$sp-200;
+  border-radius: b.$sp-300;
+  border: 0;
+  box-shadow: 0 b.$sp-200 b.$sp-500 #8fa0c124;
+  background-color: light-dark(b.$white, b.$blue850);
+  color: light-dark(b.$blue900, b.$white);
+  display: flex;
+  align-items: center;
+  gap: b.$sp-200;
+  cursor: pointer;
 }

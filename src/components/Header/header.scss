@@ -1,4 +1,5 @@
 @use "/src/sass/base" as b;
+@use "/src/sass/mixins" as mx;
 
 .header {
   max-width: 100%;
@@ -6,9 +7,28 @@
   padding: 1rem 1.5rem;
 }
 
+.selected-topic {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+ .icon {
+      padding: b.$sp-50;
+      border-radius: b.$sp-100;
+      height: b.$sp-500;
+      width: b.$sp-500;
+    }
+
+    .header-topic {
+      @include mx.prst-4-mob;
+      color: light-dark(b.$blue900, b.$white);
+    }
+
 .light-dark {
   display: flex;
   align-items: center;
+  height: 3.375rem;
   img {
     margin-inline: 0.5rem;
   }

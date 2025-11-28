@@ -1,0 +1,34 @@
+@use "/src/sass/base" as b;
+@use "/src/sass/mixins" as mx;
+
+.score-card {
+    margin-block: b.$sp-500 b.$sp-200;
+    background-color: light-dark(b.$white, b.$blue850);
+    border-radius: 0.75rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: b.$sp-200;
+    padding: b.$sp-400;
+}
+
+.user-score {
+    @include mx.prst-1-mob;
+    margin: 0;
+}
+
+.sub-text {
+    @include mx.prst-4-mob;
+}
+
+button {
+    font-family: inherit;
+    color: b.$white;
+    background-color: b.$purple600;
+    @include mx.prst-4-mob;
+    width: 100%;
+    padding: b.$sp-200;
+    border-radius: b.$sp-150;
+    border: none;
+    cursor: pointer;
+}

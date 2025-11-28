@@ -38,15 +38,7 @@ Users should be able to:
 
 ### Screenshot
 
-![](./screenshot.jpg)
 
-Add a screenshot of your solution. The easiest way to do this is to use Firefox to view your project, right-click the page and select "Take a Screenshot". You can choose either a full-height screenshot or a cropped one based on how long the page is. If it's very long, it might be best to crop it.
-
-Alternatively, you can use a tool like [FireShot](https://getfireshot.com/) to take the screenshot. FireShot has a free option, so you don't need to purchase it. 
-
-Then crop/optimize/edit your image however you like, add it to your project, and update the file path in the image above.
-
-**Note: Delete this note and the paragraphs above when you add your screenshot. If you prefer not to add a screenshot, feel free to remove this entire section.**
 
 ### Links
 
@@ -58,20 +50,55 @@ Then crop/optimize/edit your image however you like, add it to your project, and
 ### Built with
 
 - Semantic HTML5 markup
-- CSS custom properties
-- React
+- SASS
 - Flexbox
-- CSS Grid
 - Mobile-first workflow
 - [React](https://reactjs.org/) - JS library
-- [Next.js](https://nextjs.org/) - React framework
-- [Styled Components](https://styled-components.com/) - For styles
-
-**Note: These are just examples. Delete this note and replace the list above with your own choices**
+  - React useState
+  - React useEffect
 
 ### What I learned
 
-This is my first time using React in a project. I have been doing the [Schrima](https://scrimba.com/) course: [Learn React](https://scrimba.com/learn-react-c0e), which I recommend, I decided to start this project whilst still learning React and applying skills as I went.
+This is my first time using React in a project. I have been doing the [Scrimba](https://scrimba.com/) course: [Learn React](https://scrimba.com/learn-react-c0e), which I recommend, I decided to start this project whilst still learning React and applying skills as I went.
+
+I learnt about components in React, rendering different components as well as passing props to components. I also used state and passed state down components as it was needed at different levels. Majority of this I was confident enough with, as I had just done the Scrimba course and so it was more about solidifying and practising with knowledge gained.
+
+My biggest learning point was about manipulating styles. At first I was accessing the DOM like you would in vanilla JavaScript (`document.querySelector(...)`), which is not the way to do it in React. I then learnt about `useRef` and so starting to implement that. But when using [Claude.ai](claude.ai) to explain how to use `useRef`, it suggested React state may be better for this job. I then managed to manipulate styles depending on the state of the 'correct answer' and the 'selected answer'. 
+I used class names to figure to set styles, and rendered those class names depending on certain states.
+
+```Javascript
+
+  const optionBtns = quizData[quizTopic].questions[questionNum - 1].options.map(
+    (option, index) => {
+      return (
+        <button
+          key={index}
+          className={setOptionsClassName(option)}
+          type="radio"
+          name="option"
+          value={option}
+          onClick={handleChange}
+          disabled={answerSubmitted ? true : false}
+        >
+          <div className="optionChar">{answerOptions[index]}</div>
+          {option}
+          <img
+            src={correctAnswer === option ? checkIcon : errorIcon}
+            className={
+              !answerSubmitted
+                ? "hidden"
+                : option === correctAnswer || option === userAnswer
+                ? "answer-icon"
+                : "hidden"
+            }
+          />
+        </button>
+      );
+    }
+  );
+
+```
+I am proud that I figured out the 'how-to', once I realised - perhaps it should not have taken Claude.ai to tell me - that I could use state to do this
 
 
 ### Continued development
@@ -79,17 +106,19 @@ This is my first time using React in a project. I have been doing the [Schrima](
 Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
 
 
+
 ### Useful resources
 
+- This [Scrimba Learn React Course](https://scrimba.com/learn-react-c0e) is where I gained majority of my React knowledge. 
 - This [w3schools how-to](https://www.w3schools/how/howto_css_switch.asp) is where I learnt how to create the switch for the light-dark theme. I created this [Codepen](https://codepen.io/s2i61m97o/pen/RNaQvEp) from it, styling the switch for what I needed for this project.
-
-
+- This [w3schools React Form Tutorial](https://www.w3schools.com/react/react_forms_radio.asp) helped with using radio buttons as part of a form in React.
+- This [Medium article by Matt Claffey](https://mattclaffey.medium.com/adding-react-refs-to-an-array-of-items-96e9a12ab40c) helped with understanding a way to use `useRef` as an array for multiple elements, with the top comment on this post being useful.
 
 
 ## Author
 
 - Website - [Add your name here](https://www.your-site.com)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
+- Frontend Mentor - [@s2i61m97o](https://www.frontendmentor.io/profile/s2i61m97o)
 - Twitter - [@yourusername](https://www.twitter.com/yourusername)
 
 

@@ -1,0 +1,110 @@
+@use "/src/sass/base" as b;
+@use "/src/sass/mixins" as mx;
+
+.question {
+  @include mx.prst-3-mob;
+  color: light-dark(b.$blue900, b.$white);
+}
+
+progress {
+  display: inline-block;
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: b.$sp-200;
+  outline: none;
+}
+
+progress::-webkit-progress-bar {
+  display: inline-block;
+  -webkit-appearance: none;
+  appearance: none;
+  background: light-dark(b.$white, b.$blue850);
+  border-radius: b.$sp-200;
+  border: 0.25rem solid light-dark(b.$white, b.$blue850);
+}
+
+progress::-webkit-progress-value {
+  background-color: b.$purple600;
+  border-radius: b.$sp-200;
+  height: 50%;
+}
+
+.answer-options {
+  margin-block: b.$sp-200;
+  display: flex;
+  flex-direction: column;
+  gap: b.$sp-200;
+}
+
+.optionChar {
+  @include mx.prst-4-mob;
+  color: b.$grey500;
+  background-color: b.$grey50;
+  padding: b.$sp-200;
+  border-radius: b.$sp-150;
+}
+
+.option{
+  border: 0.125rem solid light-dark(b.$white, b.$blue850);
+
+  .answer-icon {
+    margin-left: auto;
+  }
+    
+}
+
+.selected {
+  border: 0.125rem b.$purple600 solid;
+  .optionChar {
+    color: b.$white;
+    background-color: b.$purple600;
+  }
+}
+
+.submit-btn {
+  width: 100%;
+  color: b.$white;
+  background-color: b.$purple600;
+  @include mx.prst-4-mob;
+  border-radius: b.$sp-300;
+  text-align: center;
+  padding: b.$sp-300;
+  border: none;
+  cursor: pointer;
+}
+
+.error-msg {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: b.$sp-100;
+  
+  p {
+    @include mx.prst-4-mob;
+    color: b.$red500;
+  }
+}
+
+.correct {
+  border: b.$green500 0.125rem solid;
+  .optionChar {
+    background-color: b.$green500;
+    color: b.$white;
+  }
+}
+.incorrect {
+  border: b.$red500 0.125rem solid;
+  .optionChar {
+    background-color: b.$red500;
+    color: b.$white;
+  }
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.disabled {
+  opacity: 0.5;
+}

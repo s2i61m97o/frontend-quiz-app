@@ -4,7 +4,7 @@
     font-size: 5.5rem;
     font-weight: 500;
     line-height: 100%;
-    color: b.$blue900;
+    color: light-dark(b.$blue900, b.$white);
 }
 
 @mixin prst-2-mob() {
@@ -17,12 +17,14 @@
     font-size: 1.25rem;
     font-weight: 500;
     line-height: 120%;
+    color: light-dark(b.$blue900, b.$white);
 }
 
 @mixin prst-4-mob {
     font-size: 1.125rem;
     font-weight: 500;
     line-height: 100%;
+    font-style: normal;
 }
 
 @mixin prst-5-mob {
@@ -30,5 +32,5 @@
     font-weight: 400;
     line-height: 150%;
     font-style: italic;
-    color: b.$grey500;
+    color: light-dark(b.$grey500, b.$blue300);
 }
