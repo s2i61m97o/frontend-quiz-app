@@ -38,12 +38,11 @@ Users should be able to:
 
 ### Screenshot
 
-
+![Completed Project](./completed-project-screenshot.png)
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- [Live Site](https://s2i61m97o.github.io/frontend-quiz-app)
 
 ## My process
 
@@ -116,7 +115,4 @@ I will continue with using React within projects as well as developing my skills
 
 ## Author
 
-- Website - [Add your name here](https://www.your-site.com)
 - Frontend Mentor - [@s2i61m97o](https://www.frontendmentor.io/profile/s2i61m97o)
-- Twitter - [@yourusername](https://www.twitter.com/yourusername)
-

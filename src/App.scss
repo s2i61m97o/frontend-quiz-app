@@ -57,6 +57,7 @@ main {
     gap: clamp(b.$sp-800, -8rem + 20vw, b.$sp-2000);
     max-width: 100rem;
     margin: auto;
+    align-self: center;
   }
 }
 

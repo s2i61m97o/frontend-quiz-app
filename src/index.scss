@@ -1,0 +1,7 @@
+#root {
+    @media (min-width: 60rem) {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+}
