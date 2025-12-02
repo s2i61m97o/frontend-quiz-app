@@ -98,12 +98,12 @@ I used class names to figure to set styles, and rendered those class names depen
   );
 
 ```
-I am proud that I figured out the 'how-to', once I realised - perhaps it should not have taken Claude.ai to tell me - that I could use state to do this
+I am proud that I figured out the 'how-to', once I realised - perhaps it should not have taken Claude.ai to tell me - that I could use state to do this. I `useRef` did become useful knowledge, using it to attach `scrollIntoView` to the error message in case screens did not have the height to show the message at the bottom of the page.
 
 
 ### Continued development
 
-Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
+I will continue with using React within projects as well as developing my skills and knowledge to use more of what React has to offer. I will also look at CSS Animations, a possibly return to this project to add some to this quiz, such as a celebratory animation if 100% is achieved on the quiz.
 
 
 
@@ -112,7 +112,6 @@ Use this section to outline areas that you want to continue focusing on in futur
 - This [Scrimba Learn React Course](https://scrimba.com/learn-react-c0e) is where I gained majority of my React knowledge. 
 - This [w3schools how-to](https://www.w3schools/how/howto_css_switch.asp) is where I learnt how to create the switch for the light-dark theme. I created this [Codepen](https://codepen.io/s2i61m97o/pen/RNaQvEp) from it, styling the switch for what I needed for this project.
 - This [w3schools React Form Tutorial](https://www.w3schools.com/react/react_forms_radio.asp) helped with using radio buttons as part of a form in React.
-- This [Medium article by Matt Claffey](https://mattclaffey.medium.com/adding-react-refs-to-an-array-of-items-96e9a12ab40c) helped with understanding a way to use `useRef` as an array for multiple elements, with the top comment on this post being useful.
 
 
 ## Author
@@ -121,9 +120,3 @@ Use this section to outline areas that you want to continue focusing on in futur
 - Frontend Mentor - [@s2i61m97o](https://www.frontendmentor.io/profile/s2i61m97o)
 - Twitter - [@yourusername](https://www.twitter.com/yourusername)
 
-
-## Acknowledgments
-
-This is where you can give a hat tip to anyone who helped you out on this project. Perhaps you worked in a team or got some inspiration from someone else's solution. This is the perfect place to give them some credit.
-
-**Note: Delete this note and edit this section's content as necessary. If you completed this challenge by yourself, feel free to delete this section entirely.**

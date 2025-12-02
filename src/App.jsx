@@ -1,18 +1,18 @@
 import { useState, useEffect } from "react";
-import "./App.css";
+import "./App.scss";
 import Header from "./components/Header/Header";
 import StartMenu from "./components/StartMenu/StartMenu";
 import Question from "./components/Question/Question";
 import Score from "./components/Score/Score";
 
-
 function App() {
   const [quizData, setQuizData] = useState([]);
-  const [colorTheme, setColorTheme] = useState("dark");
+  const [colorTheme, setColorTheme] = useState("light");
   const [quizTopic, setQuizTopic] = useState(null);
   const [userScore, setUserScore] = useState(0);
   const [quizComplete, setQuizComplete] = useState(false);
   const [topicColor, setTopicColor] = useState();
+  const [numOfQuestions, setNumOfQuestions] = useState();
 
   useEffect(() => {
     fetch("/data.json")
@@ -22,19 +22,16 @@ function App() {
 
   useEffect(() => {
     document.documentElement.style.colorScheme = colorTheme;
-    document.body.classList.remove("theme-light", "theme-dark")
-    document.body.classList.add(`theme-${colorTheme}`)
-  }, [colorTheme])
+    document.body.classList.remove("theme-light", "theme-dark");
+    document.body.classList.add(`theme-${colorTheme}`);
+  }, [colorTheme]);
 
   const quizTitleData = quizData.map((quiz) => {
     return { title: quiz.title, icon: quiz.icon };
   });
 
-
-
   function toggleColorTheme() {
     setColorTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
-    console.log(colorTheme)
   }
 
   function selectQuizTopic(topic) {
@@ -51,12 +48,18 @@ function App() {
           return "#f6e7ff";
       }
     });
+    setQuizLength(topic);
+  }
+
+  function setQuizLength(topic) {
+    setNumOfQuestions(quizData[topic].questions.length);
   }
 
   function resetQuiz() {
     setQuizComplete(false);
     setQuizTopic(null);
     setUserScore(null);
+    setNumOfQuestions(null);
   }
 
   return (
@@ -75,6 +78,7 @@ function App() {
           quizTopic={quizTopic}
           topicColor={topicColor}
           resetQuiz={resetQuiz}
+          numOfQuestions={numOfQuestions}
         />
       ) : quizTopic ? (
         <Question
@@ -82,6 +86,7 @@ function App() {
           quizData={quizData}
           setUserScore={setUserScore}
           setQuizComplete={setQuizComplete}
+          numOfQuestions={numOfQuestions}
         />
       ) : (
         <StartMenu

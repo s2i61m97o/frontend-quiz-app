@@ -7,8 +7,13 @@ export default function StartMenu({ quizTitleData, selectQuizTopic }) {
 
   const quizTopicBtns = quizTitleData.map((quiz, index) => {
     return (
-      <button key={quiz.title} className="topic" onClick={handleClick} value={index}>
-        <img src={quiz.icon} className={quiz.title.toLowerCase() + " icon"} />
+      <button
+        key={quiz.title}
+        className="topic"
+        onClick={handleClick}
+        value={index}
+      >
+        <img src={quiz.icon} className={quiz.title.toLowerCase() + " icon"} alt={quiz.title + " icon"}/>
         {quiz.title}
       </button>
     );
@@ -16,11 +21,13 @@ export default function StartMenu({ quizTitleData, selectQuizTopic }) {
 
   return (
     <main>
-      <h1 className="heading">
-        Welcome to the <span className="bold">Frontend Quiz!</span>
-      </h1>
-      <p>Pick a subject to get started.</p>
-
+      <div className="title-text">
+        <h1 className="heading">
+          Welcome to the <br />
+          <span className="bold">Frontend Quiz!</span>
+        </h1>
+        <p>Pick a subject to get started.</p>
+      </div>
       <div className="option-list">{quizTopicBtns}</div>
     </main>
   );

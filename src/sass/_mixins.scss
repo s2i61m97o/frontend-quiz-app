@@ -1,36 +1,94 @@
 @use "/src/sass/base" as b;
 
-@mixin prst-1-mob{
-    font-size: 5.5rem;
-    font-weight: 500;
-    line-height: 100%;
-    color: light-dark(b.$blue900, b.$white);
+// MOBILE
+
+@mixin prst-1-mob {
+  font-size: clamp(5rem, -1.1rem + 30.48vw, 7rem);
+  font-weight: 500;
+  line-height: 100%;
+  color: light-dark(b.$blue900, b.$white);
 }
 
 @mixin prst-2-mob() {
-    font-size: 2.5rem;
-    font-weight: 300;
-    line-height: 140%;
+  font-size: clamp(2rem, -1.05rem + 15.24vw, 3rem);
+  font-weight: 300;
+  line-height: 140%;
+  color: light-dark(b.$blue900, b.$white);
 }
 
 @mixin prst-3-mob {
-    font-size: 1.25rem;
-    font-weight: 500;
-    line-height: 120%;
-    color: light-dark(b.$blue900, b.$white);
+  font-size: clamp(1rem, 0.24rem + 3.81vw, 1.25rem);
+  font-weight: 500;
+  line-height: 120%;
+  color: light-dark(b.$blue900, b.$white);
 }
 
 @mixin prst-4-mob {
-    font-size: 1.125rem;
-    font-weight: 500;
-    line-height: 100%;
-    font-style: normal;
+  font-size: clamp(1rem, 0.24rem + 3.81vw, 1.25rem);
+  font-weight: 500;
+  line-height: 100%;
+  font-style: normal;
+  color: light-dark(b.$blue900, b.$white);
 }
 
 @mixin prst-5-mob {
-    font-size: 0.875rem;
-    font-weight: 400;
-    line-height: 150%;
-    font-style: italic;
-    color: light-dark(b.$grey500, b.$blue300);
+  font-size: clamp(0.75rem, -0.01rem + 3.81vw, 1rem);
+  line-height: 150%;
+  font-style: italic;
+  color: light-dark(b.$grey500, b.$blue300);
+}
+
+// TABLET & DESKTOP
+
+@mixin prst-1 {
+  font-size: 9rem;
+  font-weight: 500;
+  line-height: 100%;
+  color: light-dark(b.$blue900, b.$white);
+}
+
+@mixin prst-2-md {
+  font-size: 4rem;
+  font-weight: 500;
+  line-height: 100%;
+  color: light-dark(b.$blue900, b.$white);
+}
+
+@mixin prst-2-lt {
+  font-size: 4rem;
+  font-weight: 300;
+  line-height: 100%;
+  color: light-dark(b.$blue900, b.$white);
+}
+
+@mixin prst-3 {
+  font-size: 2.25rem;
+  font-weight: 500;
+  line-height: 120%;
+  color: light-dark(b.$blue900, b.$white);
+}
+
+@mixin prst-4 {
+  font-size: clamp(1.5rem, 1.32rem + 0.48vw, 1.75rem);
+  font-weight: 500;
+  line-height: 150%;
+}
+
+@mixin prst-5-md {
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 150%;
+}
+
+@mixin prst-5-rg {
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 150%;
+}
+
+@mixin prst-6 {
+  font-size: 1.25rem;
+  font-style: italic;
+  line-height: 150%;
+  color: light-dark(b.$grey500, b.$blue300);
 }

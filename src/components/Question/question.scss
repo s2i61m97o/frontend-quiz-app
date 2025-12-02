@@ -1,11 +1,46 @@
 @use "/src/sass/base" as b;
 @use "/src/sass/mixins" as mx;
 
+main {
+  padding-block-start: 0;
+}
+
+.question-section {
+  @media (min-width: 60rem) {
+    width: 35%;
+    min-height: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+}
+
 .question {
   @include mx.prst-3-mob;
   color: light-dark(b.$blue900, b.$white);
+
+  @media (min-width: 38rem) {
+    @include mx.prst-3;
+    margin-block: b.$sp-300 b.$sp-500;
+  }
 }
 
+.question-num {
+  @include mx.prst-5-mob;
+  margin: 0;
+
+  @media (min-width: 38rem) {
+    @include mx.prst-6;
+  }
+}
+
+.progress-container {
+  @media (min-width: 60rem) {
+    margin-block-end: 14rem;
+  }
+}
+
+// Progress Bar
 progress {
   display: inline-block;
   -webkit-appearance: none;
@@ -15,6 +50,7 @@ progress {
   outline: none;
 }
 
+// Progress bar background
 progress::-webkit-progress-bar {
   display: inline-block;
   -webkit-appearance: none;
@@ -24,6 +60,7 @@ progress::-webkit-progress-bar {
   border: 0.25rem solid light-dark(b.$white, b.$blue850);
 }
 
+// Progress bar filled
 progress::-webkit-progress-value {
   background-color: b.$purple600;
   border-radius: b.$sp-200;
@@ -35,6 +72,16 @@ progress::-webkit-progress-value {
   display: flex;
   flex-direction: column;
   gap: b.$sp-200;
+
+  @media (min-width: 38rem) {
+    margin-block-start: b.$sp-500;
+    gap: b.$sp-300;
+  }
+
+  @media (min-width: 60rem) {
+    margin-block-start: 0;
+    width: clamp(31rem, 50%, 44rem);
+  }
 }
 
 .optionChar {
@@ -43,15 +90,31 @@ progress::-webkit-progress-value {
   background-color: b.$grey50;
   padding: b.$sp-200;
   border-radius: b.$sp-150;
+
+  @media (min-width: 38rem) {
+    @include mx.prst-4;
+    padding: b.$sp-150 b.$sp-250;
+  }
 }
 
-.option{
+.option {
   border: 0.125rem solid light-dark(b.$white, b.$blue850);
-
-  .answer-icon {
-    margin-left: auto;
+}
+.option:hover {
+  border: 0.125rem b.$purple600 solid;
+  box-shadow: 0 0 0.5rem 0.1rem b.$purple600;
+  .optionChar {
+    color: b.$white;
+    background-color: b.$purple600;
   }
-    
+}
+.option:focus-visible {
+    outline: 0.25rem b.$purple600 solid;
+
+}
+
+.answer-icon {
+  margin-left: auto;
 }
 
 .selected {
@@ -63,26 +126,41 @@ progress::-webkit-progress-value {
 }
 
 .submit-btn {
+  @include mx.prst-4-mob;
   width: 100%;
   color: b.$white;
   background-color: b.$purple600;
-  @include mx.prst-4-mob;
   border-radius: b.$sp-300;
   text-align: center;
   padding: b.$sp-300;
   border: none;
   cursor: pointer;
+
+  @media (min-width: 38rem) {
+    @include mx.prst-4;
+    margin-top: b.$sp-100;
+    color: b.$white;
+  }
 }
 
+.submit-btn:focus-visible {
+    outline: 0.25rem b.$blue500 solid;
+
+  }
+  
 .error-msg {
   width: 100%;
   display: flex;
   justify-content: center;
   gap: b.$sp-100;
-  
+
   p {
     @include mx.prst-4-mob;
     color: b.$red500;
+
+    @media (min-width: 38rem) {
+      @include mx.prst-5-rg;
+    }
   }
 }
 

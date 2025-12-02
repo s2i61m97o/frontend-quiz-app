@@ -2,35 +2,66 @@
 @use "/src/sass/mixins" as mx;
 
 .header {
-  max-width: 100%;
+  width: 100%;
   display: flex;
-  padding: 1rem 1.5rem;
+  padding: b.$sp-200 b.$sp-300;
+
+  @media (min-width: 38rem) {
+    padding: b.$sp-500 b.$sp-800;
+  }
+
+  @media (min-width: 60rem) {
+    padding: b.$sp-600 b.$sp-1200;
+    display: flex;
+    justify-content: space-between;
+    max-width: 100rem;
+    margin: auto;
+  }
 }
 
 .selected-topic {
   display: flex;
-  gap: 1rem;
+  gap: b.$sp-200;
   align-items: center;
+
+  @media (min-width: 38rem) {
+    gap: b.$sp-300;
+  }
 }
 
- .icon {
-      padding: b.$sp-50;
-      border-radius: b.$sp-100;
-      height: b.$sp-500;
-      width: b.$sp-500;
-    }
+.icon {
+  padding: b.$sp-50;
+  border-radius: b.$sp-100;
+  height: b.$sp-500;
+  width: b.$sp-500;
 
-    .header-topic {
-      @include mx.prst-4-mob;
-      color: light-dark(b.$blue900, b.$white);
-    }
+  @media (min-width: 38rem) {
+    box-sizing: content-box;
+    padding: b.$sp-100;
+  }
+}
+
+.header-topic {
+  @include mx.prst-4-mob;
+
+  @media (min-width: 38rem) {
+    @include mx.prst-4;
+    margin: 0;
+  }
+}
 
 .light-dark {
   display: flex;
   align-items: center;
   height: 3.375rem;
   img {
-    margin-inline: 0.5rem;
+    margin-inline: b.$sp-100;
+    width: 2rem;
+    height: 2rem;
+
+    @media (min-width: 38rem) {
+      margin-inline: b.$sp-200;
+    }
   }
 }
 
@@ -39,8 +70,8 @@
 .switch {
   position: relative;
   display: inline-block;
-  width: 2rem;
-  height: 1.25rem;
+  width: 2.8rem;
+  height: 1.75rem;
 }
 
 /* Removing Checkboxes */
@@ -50,7 +81,7 @@
   height: 0;
 }
 
-/* Background on slider */
+/* Background of slider */
 .slider {
   position: absolute;
   cursor: pointer;
@@ -61,7 +92,7 @@
   background-color: b.$purple600;
   -webkit-transition: 0.4s;
   transition: 0.4s;
-  border-radius: 2rem;
+  border-radius: b.$sp-400;
 }
 
 /* Slider Thumb */
@@ -69,10 +100,10 @@
   position: absolute;
   content: "";
   border-radius: 50%;
-  height: 0.75rem;
-  width: 0.75rem;
-  left: 4px;
-  bottom: 4px;
+  height: 1.25rem;
+  width: 1.25rem;
+  left: b.$sp-50;
+  bottom: b.$sp-50;
   background-color: b.$white;
   -webkit-transition: 0.4s;
   transition: 0.4s;
@@ -80,7 +111,7 @@
 
 /* Thumb Movement */
 input:checked + .slider:before {
-  -webkit-transform: translateX(0.75rem);
-  -ms-transform: translateX(0.75rem);
-  transform: translateX(0.75rem);
+  -webkit-transform: translateX(1.05rem);
+  -ms-transform: translateX(1.05rem);
+  transform: translateX(1.05rem);
 }

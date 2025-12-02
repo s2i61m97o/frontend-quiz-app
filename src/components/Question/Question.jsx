@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import {useState, useEffect, useRef} from "react";
 import "./question.scss";
 import errorIcon from "/images/icon-error.svg";
 import checkIcon from "/images/icon-correct.svg";
@@ -8,6 +8,7 @@ export default function Question({
   quizData,
   setUserScore,
   setQuizComplete,
+  numOfQuestions,
 }) {
   const [questionNum, setQuestionNum] = useState(1);
   const [userAnswer, setUserAnswer] = useState("");
@@ -15,12 +16,18 @@ export default function Question({
   const [correctAnswer, setCorrectAnswer] = useState("");
   const [error, setError] = useState(false);
 
+  const errorMessage = useRef(null);
   const answerOptions = ["A", "B", "C", "D"];
-  const numOfQuestions = quizData[quizTopic].questions.length;
 
   useEffect(() => {
     setCorrectAnswer(quizData[quizTopic].questions[questionNum - 1].answer);
   }, [quizData, quizTopic, questionNum]);
+
+  useEffect(() => {
+    if (error) {
+      errorMessage.current.scrollIntoView({behavior: "smooth"});
+    }
+  }, [error]);
 
   const optionBtns = quizData[quizTopic].questions[questionNum - 1].options.map(
     (option, index) => {
@@ -80,7 +87,7 @@ export default function Question({
   function getNextQuestion(e) {
     e.preventDefault();
 
-    if (questionNum < 10) {
+    if (questionNum < numOfQuestions) {
       setAnswerSubmitted(false);
       setUserAnswer("");
       setQuestionNum((prevNum) => prevNum + 1);
@@ -101,11 +108,19 @@ export default function Question({
 
   return (
     <main>
-      <p className="questionNum">Question {questionNum} of {numOfQuestions}</p>
-      <h2 className="question">
-        {quizData[quizTopic].questions[questionNum - 1].question}
-      </h2>
-      <progress min="1" max="10" value={questionNum}></progress>
+      <section className="question-section">
+        <div className="txt-container">
+          <p className="question-num">
+            Question {questionNum} of {numOfQuestions}
+          </p>
+          <h2 className="question">
+            {quizData[quizTopic].questions[questionNum - 1].question}
+          </h2>
+        </div>
+        <div className="progress-container">
+          <progress min="1" max={numOfQuestions} value={questionNum}></progress>
+        </div>
+      </section>
 
       <form className="answer-options" action={userAnswer && submitAnswer}>
         {optionBtns}
@@ -129,10 +144,13 @@ export default function Question({
               : "Next Question"
             : "Submit Answer"}
         </button>
+        <div
+          ref={errorMessage}
+          className={error ? "error-msg" : "error-msg hidden"}
+        >
+          <img src={errorIcon} /> <p>Please select an answer</p>
+        </div>
       </form>
-      <div className={error ? "error-msg" : "error-msg hidden"}>
-        <img src={errorIcon} /> <p>Please select an answer</p>
-      </div>
     </main>
   );
 }

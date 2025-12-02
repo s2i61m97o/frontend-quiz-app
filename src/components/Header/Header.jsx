@@ -9,19 +9,19 @@ export default function Header({
   toggleColorTheme,
   quizTopic,
   quizData,
-  topicColor
+  topicColor,
 }) {
   return (
     <header
       className="header"
-      style={{ justifyContent: quizTopic ? "space-between" : "flex-end" }}
+      style={{justifyContent: quizTopic ? "space-between" : "flex-end"}}
     >
       {quizTopic && (
         <div className="selected-topic">
           <img
             src={quizData[quizTopic].icon}
             className="icon"
-            style={{ backgroundColor: topicColor }}
+            style={{backgroundColor: topicColor}}
           />
           <p className="header-topic">{quizData[quizTopic].title}</p>
         </div>
@@ -33,7 +33,12 @@ export default function Header({
         />
 
         <label className="switch">
-          <input type="checkbox" onChange={toggleColorTheme} checked={colorTheme === "light" ? false : true}/>
+          <input
+            type="checkbox"
+            onChange={toggleColorTheme}
+            checked={colorTheme === "light" ? false : true}
+            name="theme-slider"
+          />
           <span className="slider round"></span>
         </label>
 

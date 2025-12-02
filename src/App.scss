@@ -1,0 +1,84 @@
+@use "./sass/base" as b;
+@use "./sass/mixins" as mx;
+
+* {
+  box-sizing: border-box;
+}
+
+.theme-dark {
+  background-image: url(/images/pattern-background-mobile-dark.svg);
+
+  @media (min-width: 38rem) {
+    background-image: url(/images/pattern-background-tablet-dark.svg);
+  }
+
+  @media (min-width: 60rem) {
+    background-image: url(/images/pattern-background-desktop-dark.svg);
+  }
+}
+
+.theme-light {
+  background-image: url(/images/pattern-background-mobile-light.svg);
+
+  @media (min-width: 38rem) {
+    background-image: url(/images/pattern-background-tablet-light.svg);
+  }
+
+  @media (min-width: 60rem) {
+    background-image: url(/images/pattern-background-desktop-light.svg);
+  }
+}
+
+body {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: light-dark(b.$grey50, b.$blue900);
+  max-width: 100%;
+  margin: 0;
+  font-family: "Rubik", sans-serif;
+
+  @media (min-width: 38rem) {
+    background-size: cover;
+  }
+}
+
+main {
+  width: 100%;
+  padding: b.$sp-400 b.$sp-300;
+
+  @media (min-width: 38rem) {
+    padding: b.$sp-500 b.$sp-800;
+  }
+
+  @media (min-width: 60rem) {
+    display: flex;
+    justify-content: space-between;
+    padding: b.$sp-500 b.$sp-1200 0;
+    gap: clamp(b.$sp-800, -8rem + 20vw, b.$sp-2000);
+    max-width: 100rem;
+    margin: auto;
+  }
+}
+
+.topic,
+.option {
+  font-family: inherit;
+  @include mx.prst-4-mob;
+  text-align: start;
+  width: 100%;
+  padding: b.$sp-200;
+  border-radius: b.$sp-300;
+  border: 0;
+  background-color: light-dark(b.$white, b.$blue850);
+  display: flex;
+  align-items: center;
+  gap: b.$sp-200;
+  cursor: pointer;
+  box-shadow: 0 b.$sp-200 b.$sp-500
+    light-dark(rgba(143, 160, 193, 0.141), rgba(204, 202, 214, 0.05));
+
+  @media (min-width: 38rem) {
+    @include mx.prst-4;
+    gap: b.$sp-400;
+  }
+}
